@@ -1,11 +1,13 @@
 /**
-* LOG.HPP
-* By Matthew Dalrymple
+* @file log.cpp
+* @author Matthew Dalrymple
 **/
 
 #include <fstream>
 #include <stdarg.h>
-#include "../include/log.hpp"
+#include <generic/log.hpp>
+
+using namespace tools::generic;
 
 // The name +/- the path of the logging file
 std::string	Log::m_fileName;
