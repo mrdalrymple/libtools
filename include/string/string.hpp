@@ -14,15 +14,17 @@ namespace tools {
 	
 	namespace string {
 		
-		inline std::string StringToLower(const std::string &str);
+		std::string StringToLower(const std::string &str);
 		
-		inline std::string StringToUpper(const std::string &str);
+		std::string StringToUpper(const std::string &str);
+		
+		std::string Trim(const std::string &str);
 		
 		std::string GetTimestamp();
 		
 		std::string GenerateUniqueString(const char* prefix = nullptr, const char* suffix = nullptr);
 		
-		inline void EmptyStringStream(std::stringstream &ss);
+		void EmptyStringStream(std::stringstream &ss);
 		
 	}
 	

@@ -7,19 +7,28 @@ CC = g++ -std=c++11
 default: all
 	
 all: log.o variant.o string.o
-	@ar rvs $(NAME).a *.o > /dev/null 2>&1
-	@mkdir -p $(BIN)
-	@mv $(NAME).a $(BIN)
-	@mv *.o $(BIN)
+	ar rvs $(NAME).a *.o > /dev/null 2>&1
+	mkdir -p $(BIN)
+	mv $(NAME).a $(BIN)
+	mv *.o $(BIN)
+
+#all: all.o
+#	ar rvs $(NAME).a all.o
+#	mkdir -p $(BIN)
+#	mv $(NAME).a $(BIN)
+#	mv *.o $(BIN)
+
+#all.o:
+#	$(CC) $(SOURCE)/generic/*.cpp $(SOURCE)/string/*.cpp -I$(INCLUDE) -o all.o
 
 log.o: 
-	@$(CC) -o log.o -c $(SOURCE)/generic/log.cpp -I$(INCLUDE)
+	$(CC) -o log.o -c $(SOURCE)/generic/log.cpp -I$(INCLUDE)
 	
 variant.o:
-	@$(CC) -o variant.o -c $(SOURCE)/generic/variant.cpp -I$(INCLUDE)
+	$(CC) -o variant.o -c $(SOURCE)/generic/variant.cpp -I$(INCLUDE)
 	
 string.o:
-	@$(CC) -o string.o -c $(SOURCE)/string/string.cpp -I$(INCLUDE)
+	$(CC) -o string.o -c $(SOURCE)/string/string.cpp -I$(INCLUDE)
 
 clean:
 	@rm -f *.o

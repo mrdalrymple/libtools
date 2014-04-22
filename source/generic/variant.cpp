@@ -13,12 +13,12 @@ using namespace tools::generic;
 //TODO: Try making this simplier, either refactoring code or always save value as string and parse it back out on demand...
 // If go the string route, you can still save values to speed up 2nd get call, but reset all internal vars on any set
 
-Variant::Variant()
+tools::generic::Variant::Variant()
 {
 	this->Init();
 }
 
-Variant::Variant(const Variant &rhs)
+tools::generic::Variant::Variant(const Variant &rhs)
 {
 	this->Init();
 	
@@ -53,12 +53,12 @@ Variant::Variant(const Variant &rhs)
 	}
 }
 
-Variant::~Variant()
+tools::generic::Variant::~Variant()
 {
 	this->Clear();
 }
 
-void Variant::Init()
+void tools::generic::Variant::Init()
 {
 	this->_boolValue = nullptr;
 	this->_stringValue = nullptr;
@@ -68,7 +68,7 @@ void Variant::Init()
 	this->_longValue = nullptr;
 }
 
-void Variant::Clear()
+void tools::generic::Variant::Clear()
 {
 	if (this->_boolValue) {
 		delete this->_boolValue;
@@ -105,7 +105,7 @@ void Variant::Clear()
 
 
 
-bool Variant::Bool()
+bool tools::generic::Variant::Bool()
 {
 	if (this->_boolValue) {
 		return (*this->_boolValue);
@@ -114,7 +114,7 @@ bool Variant::Bool()
 	}
 }
 
-void Variant::Bool(bool value)
+void tools::generic::Variant::Bool(bool value)
 {
 	this->Clear();
 	
@@ -181,7 +181,7 @@ void Variant::Bool(bool value)
 	}
 }
 
-std::string Variant::String()
+std::string tools::generic::Variant::String()
 {
 	if (this->_stringValue) {
 		return (*this->_stringValue);
@@ -190,7 +190,7 @@ std::string Variant::String()
 	}
 }
 
-void Variant::String(const std::string &value)
+void tools::generic::Variant::String(const std::string &value)
 {
 	std::string valueLower;
 	long long ll = atoll(value.c_str());
@@ -260,7 +260,7 @@ void Variant::String(const std::string &value)
 	}
 }
 
-float Variant::Float()
+float tools::generic::Variant::Float()
 {
 	if (this->_floatValue) {
 		return (*this->_floatValue);
@@ -269,7 +269,7 @@ float Variant::Float()
 	}
 }
 
-void Variant::Float(float value)
+void tools::generic::Variant::Float(float value)
 {
 	this->Clear();
 	
@@ -322,7 +322,7 @@ void Variant::Float(float value)
 	}
 }
 
-double Variant::Double()
+double tools::generic::Variant::Double()
 {
 	if (this->_doubleValue) {
 		return (*this->_doubleValue);
@@ -331,7 +331,7 @@ double Variant::Double()
 	}
 }
 
-void Variant::Double(double value)
+void tools::generic::Variant::Double(double value)
 {
 	this->Clear();
 	
@@ -392,7 +392,7 @@ void Variant::Double(double value)
 	}
 }
 
-int Variant::Int()
+int tools::generic::Variant::Int()
 {
 	if (this->_intValue) {
 		return (*this->_intValue);
@@ -401,7 +401,7 @@ int Variant::Int()
 	}
 }
 
-void Variant::Int(int value)
+void tools::generic::Variant::Int(int value)
 {
 	this->Clear();
 	
@@ -454,7 +454,7 @@ void Variant::Int(int value)
 	}
 }
 
-long Variant::Long()
+long tools::generic::Variant::Long()
 {
 	if (this->_longValue) {
 		return (*this->_longValue);
@@ -463,7 +463,7 @@ long Variant::Long()
 	}
 }
 
-void Variant::Long(long value)
+void tools::generic::Variant::Long(long value)
 {
 	this->Clear();
 	

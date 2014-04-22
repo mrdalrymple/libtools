@@ -17,7 +17,7 @@ std::string	Log::m_fileName;
 * If no path provided the PWD is used
 * MUST BE SET BEFORE USE OF ANY FURTHER METHODS
 **/
-bool	Log::setFile( std::string fileName )
+bool	tools::generic::Log::setFile( std::string fileName )
 {
 	m_fileName = fileName;
 	return erase();
@@ -27,7 +27,7 @@ bool	Log::setFile( std::string fileName )
 * A basic log with no prefix
 * uses the standard printf() parameters
 **/
-bool	Log::log( char* msg, ... )
+bool	tools::generic::Log::log( char* msg, ... )
 {
 	if(!fileIsSet())
 		return false;
@@ -49,7 +49,7 @@ bool	Log::log( char* msg, ... )
 * A logging method with a prefix of "Warning: "
 * uses the standard printf() parameters
 **/
-bool	Log::warning( char* msg, ... )
+bool	tools::generic::Log::warning( char* msg, ... )
 {
 	if(!fileIsSet())
 		return false;
@@ -71,7 +71,7 @@ bool	Log::warning( char* msg, ... )
 * A logging method with a prefix of "Error: "
 * uses the standard printf() parameters
 **/
-bool	Log::error( char* msg, ... )
+bool	tools::generic::Log::error( char* msg, ... )
 {
 	if(!fileIsSet())
 		return false;
@@ -95,7 +95,7 @@ bool	Log::error( char* msg, ... )
 * This method tests isTrue and !isTrue will log the message
 * uses the standard printf() parameters after the boolean parameter
 **/
-bool	Log::verify( bool isTrue, char* msg, ... )
+bool	tools::generic::Log::verify( bool isTrue, char* msg, ... )
 {
 	if(!fileIsSet())
 		return false;
@@ -121,7 +121,7 @@ bool	Log::verify( bool isTrue, char* msg, ... )
 * prelude is set before the message
 * Returns false on !fileIsSet() or on an error opening the log file
 **/
-bool	Log::write( std::string msg, std::string prelude )
+bool	tools::generic::Log::write( std::string msg, std::string prelude )
 {
 	if(!fileIsSet())
 		return false;
@@ -142,7 +142,7 @@ bool	Log::write( std::string msg, std::string prelude )
 * Checks to see if the file was set before use
 * Returns false on no setFile() call
 **/
-bool Log::fileIsSet()
+bool tools::generic::Log::fileIsSet()
 {
 	return !m_fileName.empty();
 }
@@ -151,7 +151,7 @@ bool Log::fileIsSet()
 * Clears the log file of any data currently in it
 * Returns false on no setFile() call
 **/
-bool Log::erase()
+bool tools::generic::Log::erase()
 {
 	if(!fileIsSet())
 		return false;

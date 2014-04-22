@@ -12,21 +12,26 @@
 
 using namespace tools::string;
 
-std::string StringToLower(const std::string &str)
+std::string tools::string::StringToLower(const std::string &str)
 {
 	std::string ret;
 	std::transform(str.begin(), str.end(), ret.begin(), tolower);
 	return ret;
 }
 
-std::string StringToUpper(const std::string &str)
+std::string tools::string::StringToUpper(const std::string &str)
 {
 	std::string ret;
 	std::transform(str.begin(), str.end(), ret.begin(), toupper);
 	return ret;
 }
 
-std::string GetTimestamp()
+std::string tools::string::Trim(const std::string &str)
+{
+	return "";
+}
+
+std::string tools::string::GetTimestamp()
 {
 	std::string timestamp = "";
 	
@@ -57,7 +62,7 @@ std::string GetTimestamp()
 	return timestamp;
 }
 
-std::string GenerateUniqueString(const char* prefix, const char* suffix)
+std::string tools::string::GenerateUniqueString(const char* prefix, const char* suffix)
 {
 	std::string uniqueString = "";
 	
@@ -65,7 +70,7 @@ std::string GenerateUniqueString(const char* prefix, const char* suffix)
 		uniqueString += prefix;
 	}
 	
-	uniqueString += tools::string::GetTimestamp();
+	uniqueString += tools::string::GetTimestampz();
 	
 	if (suffix) {
 		uniqueString += suffix;
@@ -74,7 +79,7 @@ std::string GenerateUniqueString(const char* prefix, const char* suffix)
 	return uniqueString;
 }
 
-inline void EmptyStringStream(std::stringstream &ss)
+void tools::string::EmptyStringStream(std::stringstream &ss)
 {
 	ss.str(std::string());
 }
